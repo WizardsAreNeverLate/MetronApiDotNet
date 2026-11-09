@@ -3,7 +3,6 @@ using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using Metron.Api;
-using Metron.Api.Client;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Kiota.Abstractions;
 
@@ -21,34 +20,28 @@ services.AddMetronClient(o =>
     o.UserAgent = "Metron.Api.Sample";
 });
 using var provider = services.BuildServiceProvider();
-var client = provider.GetRequiredService<MetronClient>();
+var metron = provider.GetRequiredService<IMetronApi>();
 
 try
 {
     Console.WriteLine("== Publishers (page 1) ==");
-    var publishers = await client.Api.Publisher.EmptyPathSegment.GetAsync(c => c.QueryParameters.Page = 1);
-    Console.WriteLine($"{publishers?.Count} publishers in total");
-    foreach (var p in publishers?.Results?.Take(5) ?? [])
+    var publishers = await metron.Publishers.ListAsync();
+    Console.WriteLine($"{publishers.TotalCount} publishers in total");
+    foreach (var p in publishers.Items.Take(5))
         Console.WriteLine($"  [{p.Id}] {p.Name}");
 
     Console.WriteLine();
-    Console.WriteLine("== Series named \"Batman\" ==");
-    var seriesList = new System.Collections.Generic.List<Metron.Api.Client.Models.SeriesList>();
-    for (var page = 1; page <= 2; page++)
+    Console.WriteLine("== Series named \"Batman\" (streamed, first 8) ==");
+    var batman = new System.Collections.Generic.List<SeriesSummary>();
+    await foreach (var s in metron.Series.StreamAsync(new SeriesFilter { Name = "Batman" }))
     {
-        var result = await client.Api.Series.EmptyPathSegment.GetAsync(c =>
-        {
-            c.QueryParameters.Name = "Batman";
-            c.QueryParameters.Page = page;
-        });
-        Console.WriteLine($"page {page}: {result?.Results?.Count ?? 0} of {result?.Count} matches");
-        seriesList.AddRange(result?.Results ?? []);
-        if (result?.Next is null) break;
+        batman.Add(s);
+        if (batman.Count == 8) break;
     }
-    foreach (var s in seriesList.Take(8))
-        Console.WriteLine($"  [{s.Id}] {s.Series}, {s.Publisher?.Name}, issues: {s.IssueCount}");
+    foreach (var s in batman)
+        Console.WriteLine($"  [{s.Id}] {s.Name}, {s.Publisher?.Name}, issues: {s.IssueCount}");
 
-    var first = seriesList.FirstOrDefault(s => s.Id is not null);
+    var first = batman.FirstOrDefault();
     if (first is null)
     {
         Console.WriteLine("No series found, skipping issue calls.");
@@ -56,23 +49,22 @@ try
     }
 
     Console.WriteLine();
-    Console.WriteLine($"== Issues of [{first.Id}] {first.Series} (page 1) ==");
-    var issues = await client.Api.Series[first.Id!.Value].Issue_list.EmptyPathSegment
-        .GetAsync(c => c.QueryParameters.Page = 1);
-    foreach (var i in issues?.Results?.Take(5) ?? [])
-        Console.WriteLine($"  [{i.Id}] {i.Issue} (cover {i.CoverDate})");
+    Console.WriteLine($"== Issues of [{first.Id}] {first.Name} (page 1) ==");
+    var issues = await metron.Series.ListIssuesAsync(first.Id);
+    foreach (var i in issues.Items.Take(5))
+        Console.WriteLine($"  [{i.Id}] {i.Name} (cover {i.CoverDate:yyyy-MM-dd})");
 
-    var firstIssue = issues?.Results?.FirstOrDefault(i => i.Id is not null);
+    var firstIssue = issues.Items.FirstOrDefault();
     if (firstIssue is not null)
     {
         Console.WriteLine();
         Console.WriteLine($"== Issue detail [{firstIssue.Id}] ==");
-        var issue = await client.Api.Issue[firstIssue.Id!.Value].EmptyPathSegment.GetAsync();
-        Console.WriteLine($"  Title:     {issue?.Series?.Name} #{issue?.Number}");
-        Console.WriteLine($"  Publisher: {issue?.Publisher?.Name}");
-        Console.WriteLine($"  Cover:     {issue?.CoverDate}");
-        Console.WriteLine($"  Credits:   {issue?.Credits?.Count ?? 0}, characters: {issue?.Characters?.Count ?? 0}");
-        var desc = issue?.Desc;
+        var issue = await metron.Issues.GetAsync(firstIssue.Id);
+        Console.WriteLine($"  Title:     {issue.Name}");
+        Console.WriteLine($"  Publisher: {issue.Publisher?.Name}");
+        Console.WriteLine($"  Cover:     {issue.CoverDate:yyyy-MM-dd}");
+        Console.WriteLine($"  Credits:   {issue.Credits.Count}, characters: {issue.Characters.Count}");
+        var desc = issue.Desc;
         if (!string.IsNullOrWhiteSpace(desc))
             Console.WriteLine($"  Summary:   {(desc.Length > 160 ? desc[..160] + "..." : desc)}");
     }

@@ -3,3 +3,4 @@ obj/
 secrets/
 *.user
 .vs/
+TestResults/

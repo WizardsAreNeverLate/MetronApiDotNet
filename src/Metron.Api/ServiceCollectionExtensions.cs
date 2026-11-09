@@ -9,7 +9,7 @@ namespace Metron.Api
 {
     public static class ServiceCollectionExtensions
     {
-        /// <summary>Registers <see cref="MetronClient"/> as a singleton backed by <c>IHttpClientFactory</c>.</summary>
+        /// <summary>Registers <see cref="MetronClient"/> and <see cref="IMetronApi"/> as singletons backed by <c>IHttpClientFactory</c>.</summary>
         public static IServiceCollection AddMetronClient(
             this IServiceCollection services, Action<MetronClientOptions> configure)
         {
@@ -30,6 +30,7 @@ namespace Metron.Api
             services.AddSingleton(sp => MetronClientFactory.Create(
                 sp.GetRequiredService<IOptions<MetronClientOptions>>().Value,
                 sp.GetRequiredService<IHttpClientFactory>().CreateClient(nameof(MetronClient))));
+            services.AddSingleton<IMetronApi>(sp => new MetronApi(sp.GetRequiredService<MetronClient>()));
             return services;
         }
     }

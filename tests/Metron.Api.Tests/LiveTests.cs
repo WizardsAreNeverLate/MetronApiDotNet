@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Metron.Api.Client;
@@ -50,6 +51,42 @@ public class LiveTests
         var issue = await client.Api.Issue[issueId].EmptyPathSegment.GetAsync();
 
         await Assert.That(issue!.Id).IsEqualTo(issueId);
+        await Assert.That(issue.Series).IsNotNull();
+        await Assert.That(issue.Publisher).IsNotNull();
+    }
+}
+
+[Category("Live")]
+[RequiresToken]
+[NotInParallel("metron-live")]
+public class LiveConvenienceTests
+{
+    private static MetronApi NewApi() => MetronApi.Create(LiveToken.Find()!);
+
+    [Test]
+    public async Task Stream_yields_publishers_across_the_first_page()
+    {
+        var names = new List<string>();
+        await foreach (var publisher in NewApi().Publishers.StreamAsync())
+        {
+            names.Add(publisher.Name);
+            if (names.Count == 3) break;
+        }
+
+        await Assert.That(names.Count).IsEqualTo(3);
+        await Assert.That(names.All(n => n.Length > 0)).IsTrue();
+    }
+
+    [Test]
+    public async Task Series_search_issue_list_and_detail_round_trip()
+    {
+        var api = NewApi();
+        var series = (await api.Series.ListAsync(new SeriesFilter { Name = "Batman" })).Items.First();
+
+        var issues = await api.Series.ListIssuesAsync(series.Id);
+        var issue = await api.Issues.GetAsync(issues.Items.First().Id);
+
+        await Assert.That(issue.Id).IsEqualTo(issues.Items.First().Id);
         await Assert.That(issue.Series).IsNotNull();
         await Assert.That(issue.Publisher).IsNotNull();
     }
