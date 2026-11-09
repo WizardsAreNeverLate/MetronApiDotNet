@@ -1,0 +1,74 @@
+Warning: KiotaBuilder OpenAPI warning: #/ - A servers entry (v3) or host + basePath + schemes properties (v2) was not present in the OpenAPI description. The root URL will need to be set manually with the request adapter.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/AcquireWishListItem/properties/purchase_price - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/ArcRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/Attribution/properties/url - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/CharacterRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/CollectionAddItem/properties/grade - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/CollectionAddItem/properties/purchase_price - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/CollectionRead/properties/purchase_price - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/CreatorRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/ImprintRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/IssueList/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/IssueRead/properties/price/oneOf/0 - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/IssueRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedArcListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedArcListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCharacterListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCharacterListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCollectionListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCollectionListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCreatorListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedCreatorListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedImprintListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedImprintListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedIssueListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedIssueListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedMissingIssueList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedMissingIssueList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedMissingSeriesList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedMissingSeriesList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPublisherListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPublisherListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListIssueList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListIssueList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListReadList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListReadList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListSeriesList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedPullListSeriesList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedReadingListItemList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedReadingListItemList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedReadingListListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedReadingListListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedRoleList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedRoleList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedSeriesListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedSeriesListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedSeriesTypeList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedSeriesTypeList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedTeamListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedTeamListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedUniverseListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedUniverseListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedWishListItemListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedWishListItemListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedWishListList/properties/next - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PaginatedWishListList/properties/previous - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PublisherRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/PullListIssue/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/ReadingListRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/ReadingListRead/properties/attribution_url/oneOf/0 - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/TeamRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/UniverseRead/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/VariantsIssue/properties/price/oneOf/0 - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/VariantsIssue/properties/image - The format uri is not supported by Kiota and the string type will be used.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/WishListAddItem/properties/desired_grade - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/WishListAddItem/properties/max_price - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder OpenAPI warning: #/components/schemas/WishListItemRead/properties/max_price - The format decimal is not supported by Kiota for the type String and will be ignored.
+Warning: KiotaBuilder No server url found in the OpenAPI document. The base url will need to be set when using the client.
+Warning: KiotaBuilder Discriminator BlankEnum is not inherited from BlankEnum.
+Warning: KiotaBuilder Discriminator BlankEnum is not inherited from BlankEnum.
+Warning: KiotaBuilder Discriminator DesiredGradeEnum is not inherited from DesiredGradeEnum.
+Warning: KiotaBuilder Discriminator DesiredGradeEnum is not inherited from DesiredGradeEnum.
+Warning: KiotaBuilder Discriminator NullEnum is not inherited from NullEnum.
+Warning: KiotaBuilder Discriminator NullEnum is not inherited from NullEnum.
+Warning: KiotaBuilder Discriminator RatingEnum is not inherited from RatingEnum.
